@@ -1,0 +1,604 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="QLSTUDIOModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Admin">
+          <Key>
+            <PropertyRef Name="admin_id" />
+          </Key>
+          <Property Name="admin_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="username" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="password" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="role" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Attendance">
+          <Key>
+            <PropertyRef Name="attendance_id" />
+          </Key>
+          <Property Name="attendance_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="schedule_id" Type="int" Nullable="false" />
+          <Property Name="member_id" Type="int" Nullable="false" />
+          <Property Name="attendance_date" Type="date" Nullable="false" />
+          <Property Name="status" Type="nvarchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <EntityType Name="DanceRoom">
+          <Key>
+            <PropertyRef Name="room_id" />
+          </Key>
+          <Property Name="room_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="room_name" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="dance_type_id" Type="int" Nullable="false" />
+          <Property Name="teacher_id" Type="int" Nullable="false" />
+          <Property Name="room_capacity" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="DanceType">
+          <Key>
+            <PropertyRef Name="dance_type_id" />
+          </Key>
+          <Property Name="dance_type_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="dance_type_name" Type="nvarchar" MaxLength="255" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Member">
+          <Key>
+            <PropertyRef Name="member_id" />
+          </Key>
+          <Property Name="member_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="phone" Type="nvarchar" MaxLength="15" Nullable="false" />
+          <Property Name="email" Type="nvarchar" MaxLength="255" />
+          <Property Name="gender" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="dob" Type="date" />
+        </EntityType>
+        <EntityType Name="Registration">
+          <Key>
+            <PropertyRef Name="registration_id" />
+          </Key>
+          <Property Name="registration_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="member_id" Type="int" Nullable="false" />
+          <Property Name="schedule_id" Type="int" Nullable="false" />
+          <Property Name="date_registered" Type="date" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Schedule">
+          <Key>
+            <PropertyRef Name="schedule_id" />
+          </Key>
+          <Property Name="schedule_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="room_id" Type="int" Nullable="false" />
+          <Property Name="time_slot" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="date" Type="date" Nullable="false" />
+          <Property Name="teacher_id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Teacher">
+          <Key>
+            <PropertyRef Name="teacher_id" />
+          </Key>
+          <Property Name="teacher_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="teacher_name" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="phone" Type="nvarchar" MaxLength="15" Nullable="false" />
+          <Property Name="email" Type="nvarchar" MaxLength="255" />
+          <Property Name="dance_type_id" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="FK__Attendanc__membe__4F7CD00D">
+          <End Role="Member" Type="Self.Member" Multiplicity="1" />
+          <End Role="Attendance" Type="Self.Attendance" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Member">
+              <PropertyRef Name="member_id" />
+            </Principal>
+            <Dependent Role="Attendance">
+              <PropertyRef Name="member_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Attendanc__sched__4E88ABD4">
+          <End Role="Schedule" Type="Self.Schedule" Multiplicity="1" />
+          <End Role="Attendance" Type="Self.Attendance" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Schedule">
+              <PropertyRef Name="schedule_id" />
+            </Principal>
+            <Dependent Role="Attendance">
+              <PropertyRef Name="schedule_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__DanceRoom__dance__3C69FB99">
+          <End Role="DanceType" Type="Self.DanceType" Multiplicity="1" />
+          <End Role="DanceRoom" Type="Self.DanceRoom" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DanceType">
+              <PropertyRef Name="dance_type_id" />
+            </Principal>
+            <Dependent Role="DanceRoom">
+              <PropertyRef Name="dance_type_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__DanceRoom__teach__3D5E1FD2">
+          <End Role="Teacher" Type="Self.Teacher" Multiplicity="1" />
+          <End Role="DanceRoom" Type="Self.DanceRoom" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Teacher">
+              <PropertyRef Name="teacher_id" />
+            </Principal>
+            <Dependent Role="DanceRoom">
+              <PropertyRef Name="teacher_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Registrat__membe__46E78A0C">
+          <End Role="Member" Type="Self.Member" Multiplicity="1" />
+          <End Role="Registration" Type="Self.Registration" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Member">
+              <PropertyRef Name="member_id" />
+            </Principal>
+            <Dependent Role="Registration">
+              <PropertyRef Name="member_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Registrat__sched__47DBAE45">
+          <End Role="Schedule" Type="Self.Schedule" Multiplicity="1" />
+          <End Role="Registration" Type="Self.Registration" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Schedule">
+              <PropertyRef Name="schedule_id" />
+            </Principal>
+            <Dependent Role="Registration">
+              <PropertyRef Name="schedule_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Schedule__room_i__4316F928">
+          <End Role="DanceRoom" Type="Self.DanceRoom" Multiplicity="1" />
+          <End Role="Schedule" Type="Self.Schedule" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DanceRoom">
+              <PropertyRef Name="room_id" />
+            </Principal>
+            <Dependent Role="Schedule">
+              <PropertyRef Name="room_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Schedule__teache__440B1D61">
+          <End Role="Teacher" Type="Self.Teacher" Multiplicity="1" />
+          <End Role="Schedule" Type="Self.Schedule" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Teacher">
+              <PropertyRef Name="teacher_id" />
+            </Principal>
+            <Dependent Role="Schedule">
+              <PropertyRef Name="teacher_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Teacher__dance_t__398D8EEE">
+          <End Role="DanceType" Type="Self.DanceType" Multiplicity="1" />
+          <End Role="Teacher" Type="Self.Teacher" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DanceType">
+              <PropertyRef Name="dance_type_id" />
+            </Principal>
+            <Dependent Role="Teacher">
+              <PropertyRef Name="dance_type_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="QLSTUDIOModelStoreContainer">
+          <EntitySet Name="Admin" EntityType="Self.Admin" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Attendance" EntityType="Self.Attendance" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DanceRoom" EntityType="Self.DanceRoom" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DanceType" EntityType="Self.DanceType" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Member" EntityType="Self.Member" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Registration" EntityType="Self.Registration" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Schedule" EntityType="Self.Schedule" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Teacher" EntityType="Self.Teacher" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__Attendanc__membe__4F7CD00D" Association="Self.FK__Attendanc__membe__4F7CD00D">
+            <End Role="Member" EntitySet="Member" />
+            <End Role="Attendance" EntitySet="Attendance" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Attendanc__sched__4E88ABD4" Association="Self.FK__Attendanc__sched__4E88ABD4">
+            <End Role="Schedule" EntitySet="Schedule" />
+            <End Role="Attendance" EntitySet="Attendance" />
+          </AssociationSet>
+          <AssociationSet Name="FK__DanceRoom__dance__3C69FB99" Association="Self.FK__DanceRoom__dance__3C69FB99">
+            <End Role="DanceType" EntitySet="DanceType" />
+            <End Role="DanceRoom" EntitySet="DanceRoom" />
+          </AssociationSet>
+          <AssociationSet Name="FK__DanceRoom__teach__3D5E1FD2" Association="Self.FK__DanceRoom__teach__3D5E1FD2">
+            <End Role="Teacher" EntitySet="Teacher" />
+            <End Role="DanceRoom" EntitySet="DanceRoom" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Registrat__membe__46E78A0C" Association="Self.FK__Registrat__membe__46E78A0C">
+            <End Role="Member" EntitySet="Member" />
+            <End Role="Registration" EntitySet="Registration" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Registrat__sched__47DBAE45" Association="Self.FK__Registrat__sched__47DBAE45">
+            <End Role="Schedule" EntitySet="Schedule" />
+            <End Role="Registration" EntitySet="Registration" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Schedule__room_i__4316F928" Association="Self.FK__Schedule__room_i__4316F928">
+            <End Role="DanceRoom" EntitySet="DanceRoom" />
+            <End Role="Schedule" EntitySet="Schedule" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Schedule__teache__440B1D61" Association="Self.FK__Schedule__teache__440B1D61">
+            <End Role="Teacher" EntitySet="Teacher" />
+            <End Role="Schedule" EntitySet="Schedule" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Teacher__dance_t__398D8EEE" Association="Self.FK__Teacher__dance_t__398D8EEE">
+            <End Role="DanceType" EntitySet="DanceType" />
+            <End Role="Teacher" EntitySet="Teacher" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="QLSTUDIOModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Admin">
+          <Key>
+            <PropertyRef Name="admin_id" />
+          </Key>
+          <Property Name="admin_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="username" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="password" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="role" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Attendance">
+          <Key>
+            <PropertyRef Name="attendance_id" />
+          </Key>
+          <Property Name="attendance_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="schedule_id" Type="Int32" Nullable="false" />
+          <Property Name="member_id" Type="Int32" Nullable="false" />
+          <Property Name="attendance_date" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="status" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Member" Relationship="Self.FK__Attendanc__membe__4F7CD00D" FromRole="Attendance" ToRole="Member" />
+          <NavigationProperty Name="Schedule" Relationship="Self.FK__Attendanc__sched__4E88ABD4" FromRole="Attendance" ToRole="Schedule" />
+        </EntityType>
+        <EntityType Name="DanceRoom">
+          <Key>
+            <PropertyRef Name="room_id" />
+          </Key>
+          <Property Name="room_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="room_name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="dance_type_id" Type="Int32" Nullable="false" />
+          <Property Name="teacher_id" Type="Int32" Nullable="false" />
+          <Property Name="room_capacity" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="DanceType" Relationship="Self.FK__DanceRoom__dance__3C69FB99" FromRole="DanceRoom" ToRole="DanceType" />
+          <NavigationProperty Name="Teacher" Relationship="Self.FK__DanceRoom__teach__3D5E1FD2" FromRole="DanceRoom" ToRole="Teacher" />
+          <NavigationProperty Name="Schedule" Relationship="Self.FK__Schedule__room_i__4316F928" FromRole="DanceRoom" ToRole="Schedule" />
+        </EntityType>
+        <EntityType Name="DanceType">
+          <Key>
+            <PropertyRef Name="dance_type_id" />
+          </Key>
+          <Property Name="dance_type_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="dance_type_name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="DanceRoom" Relationship="Self.FK__DanceRoom__dance__3C69FB99" FromRole="DanceType" ToRole="DanceRoom" />
+          <NavigationProperty Name="Teacher" Relationship="Self.FK__Teacher__dance_t__398D8EEE" FromRole="DanceType" ToRole="Teacher" />
+        </EntityType>
+        <EntityType Name="Member">
+          <Key>
+            <PropertyRef Name="member_id" />
+          </Key>
+          <Property Name="member_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="phone" Type="String" MaxLength="15" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="email" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="gender" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="dob" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="Attendance" Relationship="Self.FK__Attendanc__membe__4F7CD00D" FromRole="Member" ToRole="Attendance" />
+          <NavigationProperty Name="Registration" Relationship="Self.FK__Registrat__membe__46E78A0C" FromRole="Member" ToRole="Registration" />
+        </EntityType>
+        <EntityType Name="Registration">
+          <Key>
+            <PropertyRef Name="registration_id" />
+          </Key>
+          <Property Name="registration_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="member_id" Type="Int32" Nullable="false" />
+          <Property Name="schedule_id" Type="Int32" Nullable="false" />
+          <Property Name="date_registered" Type="DateTime" Nullable="false" Precision="0" />
+          <NavigationProperty Name="Member" Relationship="Self.FK__Registrat__membe__46E78A0C" FromRole="Registration" ToRole="Member" />
+          <NavigationProperty Name="Schedule" Relationship="Self.FK__Registrat__sched__47DBAE45" FromRole="Registration" ToRole="Schedule" />
+        </EntityType>
+        <EntityType Name="Schedule">
+          <Key>
+            <PropertyRef Name="schedule_id" />
+          </Key>
+          <Property Name="schedule_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="room_id" Type="Int32" Nullable="false" />
+          <Property Name="time_slot" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="date" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="teacher_id" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Attendance" Relationship="Self.FK__Attendanc__sched__4E88ABD4" FromRole="Schedule" ToRole="Attendance" />
+          <NavigationProperty Name="DanceRoom" Relationship="Self.FK__Schedule__room_i__4316F928" FromRole="Schedule" ToRole="DanceRoom" />
+          <NavigationProperty Name="Registration" Relationship="Self.FK__Registrat__sched__47DBAE45" FromRole="Schedule" ToRole="Registration" />
+          <NavigationProperty Name="Teacher" Relationship="Self.FK__Schedule__teache__440B1D61" FromRole="Schedule" ToRole="Teacher" />
+        </EntityType>
+        <EntityType Name="Teacher">
+          <Key>
+            <PropertyRef Name="teacher_id" />
+          </Key>
+          <Property Name="teacher_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="teacher_name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="phone" Type="String" MaxLength="15" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="email" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="dance_type_id" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="DanceRoom" Relationship="Self.FK__DanceRoom__teach__3D5E1FD2" FromRole="Teacher" ToRole="DanceRoom" />
+          <NavigationProperty Name="DanceType" Relationship="Self.FK__Teacher__dance_t__398D8EEE" FromRole="Teacher" ToRole="DanceType" />
+          <NavigationProperty Name="Schedule" Relationship="Self.FK__Schedule__teache__440B1D61" FromRole="Teacher" ToRole="Schedule" />
+        </EntityType>
+        <Association Name="FK__Attendanc__membe__4F7CD00D">
+          <End Role="Member" Type="Self.Member" Multiplicity="1" />
+          <End Role="Attendance" Type="Self.Attendance" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Member">
+              <PropertyRef Name="member_id" />
+            </Principal>
+            <Dependent Role="Attendance">
+              <PropertyRef Name="member_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Attendanc__sched__4E88ABD4">
+          <End Role="Schedule" Type="Self.Schedule" Multiplicity="1" />
+          <End Role="Attendance" Type="Self.Attendance" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Schedule">
+              <PropertyRef Name="schedule_id" />
+            </Principal>
+            <Dependent Role="Attendance">
+              <PropertyRef Name="schedule_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__DanceRoom__dance__3C69FB99">
+          <End Role="DanceType" Type="Self.DanceType" Multiplicity="1" />
+          <End Role="DanceRoom" Type="Self.DanceRoom" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DanceType">
+              <PropertyRef Name="dance_type_id" />
+            </Principal>
+            <Dependent Role="DanceRoom">
+              <PropertyRef Name="dance_type_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__DanceRoom__teach__3D5E1FD2">
+          <End Role="Teacher" Type="Self.Teacher" Multiplicity="1" />
+          <End Role="DanceRoom" Type="Self.DanceRoom" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Teacher">
+              <PropertyRef Name="teacher_id" />
+            </Principal>
+            <Dependent Role="DanceRoom">
+              <PropertyRef Name="teacher_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Schedule__room_i__4316F928">
+          <End Role="DanceRoom" Type="Self.DanceRoom" Multiplicity="1" />
+          <End Role="Schedule" Type="Self.Schedule" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DanceRoom">
+              <PropertyRef Name="room_id" />
+            </Principal>
+            <Dependent Role="Schedule">
+              <PropertyRef Name="room_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Teacher__dance_t__398D8EEE">
+          <End Role="DanceType" Type="Self.DanceType" Multiplicity="1" />
+          <End Role="Teacher" Type="Self.Teacher" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DanceType">
+              <PropertyRef Name="dance_type_id" />
+            </Principal>
+            <Dependent Role="Teacher">
+              <PropertyRef Name="dance_type_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Registrat__membe__46E78A0C">
+          <End Role="Member" Type="Self.Member" Multiplicity="1" />
+          <End Role="Registration" Type="Self.Registration" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Member">
+              <PropertyRef Name="member_id" />
+            </Principal>
+            <Dependent Role="Registration">
+              <PropertyRef Name="member_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Registrat__sched__47DBAE45">
+          <End Role="Schedule" Type="Self.Schedule" Multiplicity="1" />
+          <End Role="Registration" Type="Self.Registration" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Schedule">
+              <PropertyRef Name="schedule_id" />
+            </Principal>
+            <Dependent Role="Registration">
+              <PropertyRef Name="schedule_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Schedule__teache__440B1D61">
+          <End Role="Teacher" Type="Self.Teacher" Multiplicity="1" />
+          <End Role="Schedule" Type="Self.Schedule" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Teacher">
+              <PropertyRef Name="teacher_id" />
+            </Principal>
+            <Dependent Role="Schedule">
+              <PropertyRef Name="teacher_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="QLSTUDIOEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Admin" EntityType="Self.Admin" />
+          <EntitySet Name="Attendance" EntityType="Self.Attendance" />
+          <EntitySet Name="DanceRoom" EntityType="Self.DanceRoom" />
+          <EntitySet Name="DanceType" EntityType="Self.DanceType" />
+          <EntitySet Name="Member" EntityType="Self.Member" />
+          <EntitySet Name="Registration" EntityType="Self.Registration" />
+          <EntitySet Name="Schedule" EntityType="Self.Schedule" />
+          <EntitySet Name="Teacher" EntityType="Self.Teacher" />
+          <AssociationSet Name="FK__Attendanc__membe__4F7CD00D" Association="Self.FK__Attendanc__membe__4F7CD00D">
+            <End Role="Member" EntitySet="Member" />
+            <End Role="Attendance" EntitySet="Attendance" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Attendanc__sched__4E88ABD4" Association="Self.FK__Attendanc__sched__4E88ABD4">
+            <End Role="Schedule" EntitySet="Schedule" />
+            <End Role="Attendance" EntitySet="Attendance" />
+          </AssociationSet>
+          <AssociationSet Name="FK__DanceRoom__dance__3C69FB99" Association="Self.FK__DanceRoom__dance__3C69FB99">
+            <End Role="DanceType" EntitySet="DanceType" />
+            <End Role="DanceRoom" EntitySet="DanceRoom" />
+          </AssociationSet>
+          <AssociationSet Name="FK__DanceRoom__teach__3D5E1FD2" Association="Self.FK__DanceRoom__teach__3D5E1FD2">
+            <End Role="Teacher" EntitySet="Teacher" />
+            <End Role="DanceRoom" EntitySet="DanceRoom" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Schedule__room_i__4316F928" Association="Self.FK__Schedule__room_i__4316F928">
+            <End Role="DanceRoom" EntitySet="DanceRoom" />
+            <End Role="Schedule" EntitySet="Schedule" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Teacher__dance_t__398D8EEE" Association="Self.FK__Teacher__dance_t__398D8EEE">
+            <End Role="DanceType" EntitySet="DanceType" />
+            <End Role="Teacher" EntitySet="Teacher" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Registrat__membe__46E78A0C" Association="Self.FK__Registrat__membe__46E78A0C">
+            <End Role="Member" EntitySet="Member" />
+            <End Role="Registration" EntitySet="Registration" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Registrat__sched__47DBAE45" Association="Self.FK__Registrat__sched__47DBAE45">
+            <End Role="Schedule" EntitySet="Schedule" />
+            <End Role="Registration" EntitySet="Registration" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Schedule__teache__440B1D61" Association="Self.FK__Schedule__teache__440B1D61">
+            <End Role="Teacher" EntitySet="Teacher" />
+            <End Role="Schedule" EntitySet="Schedule" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="QLSTUDIOModelStoreContainer" CdmEntityContainer="QLSTUDIOEntities">
+          <EntitySetMapping Name="Admin">
+            <EntityTypeMapping TypeName="QLSTUDIOModel.Admin">
+              <MappingFragment StoreEntitySet="Admin">
+                <ScalarProperty Name="admin_id" ColumnName="admin_id" />
+                <ScalarProperty Name="username" ColumnName="username" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="role" ColumnName="role" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Attendance">
+            <EntityTypeMapping TypeName="QLSTUDIOModel.Attendance">
+              <MappingFragment StoreEntitySet="Attendance">
+                <ScalarProperty Name="attendance_id" ColumnName="attendance_id" />
+                <ScalarProperty Name="schedule_id" ColumnName="schedule_id" />
+                <ScalarProperty Name="member_id" ColumnName="member_id" />
+                <ScalarProperty Name="attendance_date" ColumnName="attendance_date" />
+                <ScalarProperty Name="status" ColumnName="status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DanceRoom">
+            <EntityTypeMapping TypeName="QLSTUDIOModel.DanceRoom">
+              <MappingFragment StoreEntitySet="DanceRoom">
+                <ScalarProperty Name="room_id" ColumnName="room_id" />
+                <ScalarProperty Name="room_name" ColumnName="room_name" />
+                <ScalarProperty Name="dance_type_id" ColumnName="dance_type_id" />
+                <ScalarProperty Name="teacher_id" ColumnName="teacher_id" />
+                <ScalarProperty Name="room_capacity" ColumnName="room_capacity" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DanceType">
+            <EntityTypeMapping TypeName="QLSTUDIOModel.DanceType">
+              <MappingFragment StoreEntitySet="DanceType">
+                <ScalarProperty Name="dance_type_id" ColumnName="dance_type_id" />
+                <ScalarProperty Name="dance_type_name" ColumnName="dance_type_name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Member">
+            <EntityTypeMapping TypeName="QLSTUDIOModel.Member">
+              <MappingFragment StoreEntitySet="Member">
+                <ScalarProperty Name="member_id" ColumnName="member_id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="phone" ColumnName="phone" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="gender" ColumnName="gender" />
+                <ScalarProperty Name="dob" ColumnName="dob" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Registration">
+            <EntityTypeMapping TypeName="QLSTUDIOModel.Registration">
+              <MappingFragment StoreEntitySet="Registration">
+                <ScalarProperty Name="registration_id" ColumnName="registration_id" />
+                <ScalarProperty Name="member_id" ColumnName="member_id" />
+                <ScalarProperty Name="schedule_id" ColumnName="schedule_id" />
+                <ScalarProperty Name="date_registered" ColumnName="date_registered" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Schedule">
+            <EntityTypeMapping TypeName="QLSTUDIOModel.Schedule">
+              <MappingFragment StoreEntitySet="Schedule">
+                <ScalarProperty Name="schedule_id" ColumnName="schedule_id" />
+                <ScalarProperty Name="room_id" ColumnName="room_id" />
+                <ScalarProperty Name="time_slot" ColumnName="time_slot" />
+                <ScalarProperty Name="date" ColumnName="date" />
+                <ScalarProperty Name="teacher_id" ColumnName="teacher_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Teacher">
+            <EntityTypeMapping TypeName="QLSTUDIOModel.Teacher">
+              <MappingFragment StoreEntitySet="Teacher">
+                <ScalarProperty Name="teacher_id" ColumnName="teacher_id" />
+                <ScalarProperty Name="teacher_name" ColumnName="teacher_name" />
+                <ScalarProperty Name="phone" ColumnName="phone" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="dance_type_id" ColumnName="dance_type_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

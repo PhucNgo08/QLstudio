@@ -1,0 +1,180 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "E:\\LTWD\\QLSTUDIO\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{6634CCEC-FD0D-40C2-A889-7CD5A6FC247C}|QLSTUDIO\\QLSTUDIO.csproj|e:\\ltwd\\qlstudio\\qlstudio\\frmhv.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6634CCEC-FD0D-40C2-A889-7CD5A6FC247C}|QLSTUDIO\\QLSTUDIO.csproj|solutionrelative:qlstudio\\frmhv.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6634CCEC-FD0D-40C2-A889-7CD5A6FC247C}|QLSTUDIO\\QLSTUDIO.csproj|E:\\LTWD\\QLSTUDIO\\qlstudio\\frmhv.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{6634CCEC-FD0D-40C2-A889-7CD5A6FC247C}|QLSTUDIO\\QLSTUDIO.csproj|solutionrelative:qlstudio\\frmhv.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6634CCEC-FD0D-40C2-A889-7CD5A6FC247C}|QLSTUDIO\\QLSTUDIO.csproj|E:\\LTWD\\QLSTUDIO\\qlstudio\\frmgv.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6634CCEC-FD0D-40C2-A889-7CD5A6FC247C}|QLSTUDIO\\QLSTUDIO.csproj|solutionrelative:qlstudio\\frmgv.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6634CCEC-FD0D-40C2-A889-7CD5A6FC247C}|QLSTUDIO\\QLSTUDIO.csproj|E:\\LTWD\\QLSTUDIO\\qlstudio\\frmgv.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{6634CCEC-FD0D-40C2-A889-7CD5A6FC247C}|QLSTUDIO\\QLSTUDIO.csproj|solutionrelative:qlstudio\\frmgv.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6634CCEC-FD0D-40C2-A889-7CD5A6FC247C}|QLSTUDIO\\QLSTUDIO.csproj|E:\\LTWD\\QLSTUDIO\\qlstudio\\frmdancetype.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6634CCEC-FD0D-40C2-A889-7CD5A6FC247C}|QLSTUDIO\\QLSTUDIO.csproj|solutionrelative:qlstudio\\frmdancetype.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6634CCEC-FD0D-40C2-A889-7CD5A6FC247C}|QLSTUDIO\\QLSTUDIO.csproj|E:\\LTWD\\QLSTUDIO\\qlstudio\\frmqlstudio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6634CCEC-FD0D-40C2-A889-7CD5A6FC247C}|QLSTUDIO\\QLSTUDIO.csproj|solutionrelative:qlstudio\\frmqlstudio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6634CCEC-FD0D-40C2-A889-7CD5A6FC247C}|QLSTUDIO\\QLSTUDIO.csproj|E:\\LTWD\\QLSTUDIO\\qlstudio\\frmlogin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6634CCEC-FD0D-40C2-A889-7CD5A6FC247C}|QLSTUDIO\\QLSTUDIO.csproj|solutionrelative:qlstudio\\frmlogin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6634CCEC-FD0D-40C2-A889-7CD5A6FC247C}|QLSTUDIO\\QLSTUDIO.csproj|E:\\LTWD\\QLSTUDIO\\qlstudio\\frmlogin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{6634CCEC-FD0D-40C2-A889-7CD5A6FC247C}|QLSTUDIO\\QLSTUDIO.csproj|solutionrelative:qlstudio\\frmlogin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6634CCEC-FD0D-40C2-A889-7CD5A6FC247C}|QLSTUDIO\\QLSTUDIO.csproj|E:\\LTWD\\QLSTUDIO\\qlstudio\\frmqlstudio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{6634CCEC-FD0D-40C2-A889-7CD5A6FC247C}|QLSTUDIO\\QLSTUDIO.csproj|solutionrelative:qlstudio\\frmqlstudio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6634CCEC-FD0D-40C2-A889-7CD5A6FC247C}|QLSTUDIO\\QLSTUDIO.csproj|E:\\LTWD\\QLSTUDIO\\qlstudio\\frmdancetype.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{6634CCEC-FD0D-40C2-A889-7CD5A6FC247C}|QLSTUDIO\\QLSTUDIO.csproj|solutionrelative:qlstudio\\frmdancetype.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "frmHV.cs",
+              "DocumentMoniker": "E:\\LTWD\\QLSTUDIO\\QLSTUDIO\\frmHV.cs",
+              "RelativeDocumentMoniker": "QLSTUDIO\\frmHV.cs",
+              "ToolTip": "E:\\LTWD\\QLSTUDIO\\QLSTUDIO\\frmHV.cs",
+              "RelativeToolTip": "QLSTUDIO\\frmHV.cs",
+              "ViewState": "AgIAAEIAAAAAAAAAAADwv1oAAAAeAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-06T00:29:53.55Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "frmHV.cs [Design]",
+              "DocumentMoniker": "E:\\LTWD\\QLSTUDIO\\QLSTUDIO\\frmHV.cs",
+              "RelativeDocumentMoniker": "QLSTUDIO\\frmHV.cs",
+              "ToolTip": "E:\\LTWD\\QLSTUDIO\\QLSTUDIO\\frmHV.cs [Design]",
+              "RelativeToolTip": "QLSTUDIO\\frmHV.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-05T22:55:33.09Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "frmDanceType.cs",
+              "DocumentMoniker": "E:\\LTWD\\QLSTUDIO\\QLSTUDIO\\frmDanceType.cs",
+              "RelativeDocumentMoniker": "QLSTUDIO\\frmDanceType.cs",
+              "ToolTip": "E:\\LTWD\\QLSTUDIO\\QLSTUDIO\\frmDanceType.cs",
+              "RelativeToolTip": "QLSTUDIO\\frmDanceType.cs",
+              "ViewState": "AgIAABMAAAAAAAAAAAAvwMwAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-05T22:28:25.749Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "frmGV.cs",
+              "DocumentMoniker": "E:\\LTWD\\QLSTUDIO\\QLSTUDIO\\frmGV.cs",
+              "RelativeDocumentMoniker": "QLSTUDIO\\frmGV.cs",
+              "ToolTip": "E:\\LTWD\\QLSTUDIO\\QLSTUDIO\\frmGV.cs",
+              "RelativeToolTip": "QLSTUDIO\\frmGV.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAADwv80AAAA0AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-05T22:13:22.093Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "frmGV.cs [Design]",
+              "DocumentMoniker": "E:\\LTWD\\QLSTUDIO\\QLSTUDIO\\frmGV.cs",
+              "RelativeDocumentMoniker": "QLSTUDIO\\frmGV.cs",
+              "ToolTip": "E:\\LTWD\\QLSTUDIO\\QLSTUDIO\\frmGV.cs [Design]",
+              "RelativeToolTip": "QLSTUDIO\\frmGV.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-05T22:03:32.38Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "frmDanceType.cs [Design]",
+              "DocumentMoniker": "E:\\LTWD\\QLSTUDIO\\QLSTUDIO\\frmDanceType.cs",
+              "RelativeDocumentMoniker": "QLSTUDIO\\frmDanceType.cs",
+              "ToolTip": "E:\\LTWD\\QLSTUDIO\\QLSTUDIO\\frmDanceType.cs [Design]",
+              "RelativeToolTip": "QLSTUDIO\\frmDanceType.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-05T20:40:33.078Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "frmQLSTUDIO.cs [Design]",
+              "DocumentMoniker": "E:\\LTWD\\QLSTUDIO\\QLSTUDIO\\frmQLSTUDIO.cs",
+              "RelativeDocumentMoniker": "QLSTUDIO\\frmQLSTUDIO.cs",
+              "ToolTip": "E:\\LTWD\\QLSTUDIO\\QLSTUDIO\\frmQLSTUDIO.cs [Design]",
+              "RelativeToolTip": "QLSTUDIO\\frmQLSTUDIO.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-05T20:09:06.47Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "frmQLSTUDIO.cs",
+              "DocumentMoniker": "E:\\LTWD\\QLSTUDIO\\QLSTUDIO\\frmQLSTUDIO.cs",
+              "RelativeDocumentMoniker": "QLSTUDIO\\frmQLSTUDIO.cs",
+              "ToolTip": "E:\\LTWD\\QLSTUDIO\\QLSTUDIO\\frmQLSTUDIO.cs",
+              "RelativeToolTip": "QLSTUDIO\\frmQLSTUDIO.cs",
+              "ViewState": "AgIAAAQAAAAAAAAAAAAewB8AAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-05T19:40:12.858Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "frmLogin.cs",
+              "DocumentMoniker": "E:\\LTWD\\QLSTUDIO\\QLSTUDIO\\frmLogin.cs",
+              "RelativeDocumentMoniker": "QLSTUDIO\\frmLogin.cs",
+              "ToolTip": "E:\\LTWD\\QLSTUDIO\\QLSTUDIO\\frmLogin.cs",
+              "RelativeToolTip": "QLSTUDIO\\frmLogin.cs",
+              "ViewState": "AgIAABUAAAAAAAAAAAAgwCwAAAAXAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-05T19:19:29.607Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "frmLogin.cs [Design]",
+              "DocumentMoniker": "E:\\LTWD\\QLSTUDIO\\QLSTUDIO\\frmLogin.cs",
+              "RelativeDocumentMoniker": "QLSTUDIO\\frmLogin.cs",
+              "ToolTip": "E:\\LTWD\\QLSTUDIO\\QLSTUDIO\\frmLogin.cs [Design]",
+              "RelativeToolTip": "QLSTUDIO\\frmLogin.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-05T18:46:44.262Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
